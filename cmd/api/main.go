@@ -12,8 +12,8 @@ import (
 func main() {
 	mux := http.NewServeMux()
 
-	todoService := service.NewToDoService()
-	todoHandler := handlers.NewToDoHandler(todoService)
+	todoService := service.NewTodoService()
+	todoHandler := handlers.NewTodoHandler(todoService)
 
 	mux.HandleFunc("GET /health", handlers.HealthCheck)
 	mux.HandleFunc("GET /todos", todoHandler.ListTools)
