@@ -15,7 +15,7 @@ func NewTodoHandler(s *service.TodoService) *TodoHandler {
 	return &TodoHandler{service: s}
 }
 
-func (h *TodoHandler) ListTodos(w http.ResponseWriter, r *http.Request) {
+func (h *TodoHandler) ListTools(w http.ResponseWriter, r *http.Request) {
 	todos := h.service.List()
 	writeJSON(w, http.StatusOK, todos)
 }

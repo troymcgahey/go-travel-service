@@ -24,7 +24,7 @@ func (s *TodoService) Create(text string) models.Todo {
 		Text: text,
 		Done: false,
 	}
-	s.todos = append(s.todos.todo)
+	s.todos = append(s.todos, todo)
 	s.nextID++
 	return todo
 }
