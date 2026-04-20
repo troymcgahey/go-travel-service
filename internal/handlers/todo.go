@@ -20,7 +20,7 @@ func (h *TodoHandler) ListTools(w http.ResponseWriter, r *http.Request) {
 	writeJSON(w, http.StatusOK, todos)
 }
 
-func (h *TodoHandler) CreateTodo(w http.ResponseWriter, r *http.Request) {
+func (h *TodoHandler) CreateBooking(w http.ResponseWriter, r *http.Request) {
 	var req struct {
 		Text string `json:"test"`
 	}
@@ -39,5 +39,5 @@ func (h *TodoHandler) CreateTodo(w http.ResponseWriter, r *http.Request) {
 	}
 
 	todo := h.service.Create(req.Text)
-	writeJSON(w, http.StatusCreated, todo)
+	writeJSON(w, http.StatusCreated, "Booking Created")
 }

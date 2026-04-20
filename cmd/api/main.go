@@ -13,11 +13,11 @@ func main() {
 	mux := http.NewServeMux()
 
 	todoService := service.NewTodoService()
-	todoHandler := handlers.NewTodoHandler(todoService)
+	bookingHandler := handlers.NewTodoHandler(todoService)
 
 	mux.HandleFunc("GET /health", handlers.HealthCheck)
-	mux.HandleFunc("GET /todos", todoHandler.ListTools)
-	mux.HandleFunc("POST /todos", todoHandler.CreateTodo)
+	mux.HandleFunc("GET /todos", bookingHandler.ListTools)
+	mux.HandleFunc("POST /booking", bookingHandler.CreateBooking)
 
 	server := &http.Server{
 		Addr:         ":8080",
