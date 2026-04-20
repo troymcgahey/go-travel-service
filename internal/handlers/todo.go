@@ -22,7 +22,8 @@ func (h *TodoHandler) ListTools(w http.ResponseWriter, r *http.Request) {
 
 func (h *TodoHandler) CreateBooking(w http.ResponseWriter, r *http.Request) {
 	var req struct {
-		Text string `json:"test"`
+		Customer    string
+		Destination string
 	}
 
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
@@ -32,12 +33,13 @@ func (h *TodoHandler) CreateBooking(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if req.Text == "" {
-		writeJSON(w, http.StatusBadRequest, map[string]string{
-			"erorr": "text is required",
-		})
-	}
+	//if req.Text == "" {
+	//	writeJSON(w, http.StatusBadRequest, map[string]string{
+	//		"erorr": "text is required",
+	//	})
+	//	return
+	//}
 
-	todo := h.service.Create(req.Text)
+	//todo := h.service.Create(req.Text)
 	writeJSON(w, http.StatusCreated, "Booking Created")
 }
