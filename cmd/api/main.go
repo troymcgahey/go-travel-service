@@ -17,7 +17,8 @@ func main() {
 
 	mux.HandleFunc("GET /health", handlers.HealthCheck)
 	mux.HandleFunc("GET /todos", bookingHandler.ListTools)
-	mux.HandleFunc("POST /booking", bookingHandler.CreateBooking)
+	mux.HandleFunc("POST /bookHotel", bookingHandler.CreateHotelBooking)
+	mux.HandleFunc("POST /bookFlight", bookingHandler.CreateFlightBooking)
 
 	server := &http.Server{
 		Addr:         ":8080",
