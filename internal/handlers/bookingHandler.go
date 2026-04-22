@@ -7,20 +7,20 @@ import (
 	"github.com/troymcgahey/go-travel-service/internal/service"
 )
 
-type TodoHandler struct {
+type BookingHandler struct {
 	service *service.TodoService
 }
 
-func NewTodoHandler(s *service.TodoService) *TodoHandler {
-	return &TodoHandler{service: s}
+func NewTodoHandler(s *service.TodoService) *BookingHandler {
+	return &BookingHandler{service: s}
 }
 
-func (h *TodoHandler) ListTools(w http.ResponseWriter, r *http.Request) {
+func (h *BookingHandler) ListTools(w http.ResponseWriter, r *http.Request) {
 	todos := h.service.List()
 	writeJSON(w, http.StatusOK, todos)
 }
 
-func (h *TodoHandler) CreateHotelBooking(w http.ResponseWriter, r *http.Request) {
+func (h *BookingHandler) CreateHotelBooking(w http.ResponseWriter, r *http.Request) {
 	var req struct {
 		Customer    string
 		Destination string
@@ -44,7 +44,7 @@ func (h *TodoHandler) CreateHotelBooking(w http.ResponseWriter, r *http.Request)
 	writeJSON(w, http.StatusCreated, "Hotel Booking Created")
 }
 
-func (h *TodoHandler) CreateFlightBooking(w http.ResponseWriter, r *http.Request) {
+func (h *BookingHandler) CreateFlightBooking(w http.ResponseWriter, r *http.Request) {
 	var req struct {
 		Customer    string
 		Destination string
